@@ -12,13 +12,13 @@ def model_cleaning(df:pd.DataFrame)->Tuple[Annotated[np.ndarray,'X_train'],Annot
         pre_process=Pre_Process_Strategy()
         X_train, X_test, y_train, y_test=pre_process.clean_and_preprocess(df)
         logging.info('Pre_Processing is done')
-        with open ('config/datasets/x_train_data.pkl','wb') as f:
+        with open ('config/data_pkl_files/x_train_data.pkl','wb') as f:
             pickle.dump(X_train,f)
-        with open ('config/datasets/y_train_data.pkl','wb') as f:
+        with open ('config/data_pkl_files/y_train_data.pkl','wb') as f:
             pickle.dump(y_train,f)
-        with open ('config/datasets/x_test_data.pkl','wb') as f:
+        with open ('config/data_pkl_files/x_test_data.pkl','wb') as f:
             pickle.dump(X_test,f)
-        with open ('config/datasets/y_test_data.pkl','wb') as f:
+        with open ('config/data_pkl_files/y_test_data.pkl','wb') as f:
             pickle.dump(y_test,f)
         
         return X_train, y_train, X_test, y_test
