@@ -1,1 +1,7 @@
 .env
+__pycache__
+task_functions/__pycache__
+myennv/
+config/data_pkl_files
+Datasets/
+config/model_pkl_files
