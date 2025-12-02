@@ -8,7 +8,7 @@ class Ingest_Data:
     def ingest_data_from_kaggle(self,dataset_path)->pd.DataFrame:
         try:
            df=pd.read_csv(dataset_path)
-           print(df)
+           
            
            logging.info('Data converted PD')
            return df
