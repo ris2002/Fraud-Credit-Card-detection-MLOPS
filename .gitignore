@@ -5,3 +5,5 @@ myennv/
 config/data_pkl_files
 Datasets/
 config/model_pkl_files
+/Datasets
+/config
