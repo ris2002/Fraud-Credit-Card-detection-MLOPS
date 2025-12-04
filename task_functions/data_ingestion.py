@@ -2,10 +2,11 @@ import logging
 from airflow.decorators import task
 import pandas as pd
 import os
+import pickle
 
-@task
+
 class Ingest_Data:
-    def ingest_data_from_kaggle(self,dataset_path)->pd.DataFrame:
+    def ingest_data_(self,dataset_path)->pd.DataFrame:
         try:
            df=pd.read_csv(dataset_path)
            
@@ -20,11 +21,14 @@ class Ingest_Data:
 
 
 
+@task
 def ingest_data(dataset_path)->pd.DataFrame:
     ingestion=Ingest_Data()
-    df=ingestion.ingest_data_from_kaggle(dataset_path)
+    df=ingestion.ingest_data_(dataset_path)
+    with open ('/opt/airflow/config/Ingested_Data/ingested_data.pkl','wb') as f:
+        pickle.dump(df,f)
     logging.info('Data ingestion done')
-    return df
+   
 
 
 

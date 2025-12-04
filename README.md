@@ -25,3 +25,15 @@ git commit -m "Track dataset with DVC"
 Now that folder is not tracked by git but by dvc cacche. data.dvc is going to be stored in git
 DVC (Data Version Control) is an open-source tool designed to manage large datasets, machine-learning models, experiments, and pipelines. It works alongside Git but handles the things Git cannot, such as big files, data updates, reproducible pipelines, and shared storage.
 ## Feature Stores
+
+
+## Extra enhancements to my airflow
+beyond the basic '@dag(dag_id='ml_training_pipeline_04', schedule='@once')' I have added anothher arg that is  default_args={
+        "retries": 3,
+        "retry_delay": timedelta(minutes=5),
+        "execution_timeout": timedelta(hours=1),
+    } basically- 'retries' means each task can retry 3 times if it fails,'retry_delay' means it gives 5 min gap in btw failing and retrying again,execution_timeout- means if the dag doesnt complete within 1 hr airflow kills it.
+
+IT IS BEST PRACTICE TO AVOID INSTALLING FAST API AND UVICORN INSIDE AIRFLOW
+I have done one mistake in 3rd project. In the DAG of that project I have returned the the csv_file converted to pandas annd gave it as an input to thhe nnext step. It worked in that project because thhe data set is small. The optimal way is to store it inn a pkl file and read thhe contnnats directly whhen in thhe function which uses it.
+Do not return a value from a function, this is because if the value is large the dag will fail
