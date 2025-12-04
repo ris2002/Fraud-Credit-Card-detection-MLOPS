@@ -7,3 +7,4 @@ Datasets/
 config/model_pkl_files
 /Datasets
 /config
+/logs
