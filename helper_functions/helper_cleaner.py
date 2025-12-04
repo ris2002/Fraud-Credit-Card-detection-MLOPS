@@ -27,7 +27,7 @@ class Pre_Process_Strategy:
         except Exception as e:
             logging.error(f'Error in the Pre_Process_Startegy:{e}')
             raise e
-    def clean_annd_preprocess_deployment_data(df:pd.DataFrame)->None:
+    def clean_annd_preprocess_deployment_data(self,df:pd.DataFrame)->None:
         pass
         
 

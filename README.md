@@ -16,3 +16,12 @@ E-mail Spam Detection — MLOps-(Link: https://github.com/ris2002/E-mail-Spam-ML
 
 
 ## DVC
+pip install dvc
+git add .
+git commit -m "Initialize DVC"
+dvc add data/ here data is the folder name
+git add data.dvc .gitignore
+git commit -m "Track dataset with DVC"
+Now that folder is not tracked by git but by dvc cacche. data.dvc is going to be stored in git
+DVC (Data Version Control) is an open-source tool designed to manage large datasets, machine-learning models, experiments, and pipelines. It works alongside Git but handles the things Git cannot, such as big files, data updates, reproducible pipelines, and shared storage.
+## Feature Stores

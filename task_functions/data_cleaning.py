@@ -10,7 +10,7 @@ import pickle
 def model_cleaning(df:pd.DataFrame)->Tuple[Annotated[np.ndarray,'X_train'],Annotated[np.ndarray,'y_train'],Annotated[np.ndarray,'X_test'],Annotated[pd.DataFrame,'y_test']]:
     try:
         pre_process=Pre_Process_Strategy()
-        X_train, X_test, y_train, y_test=pre_process.clean_and_preprocess(df)
+        X_train, y_train, X_test, y_test=pre_process.clean_and_preprocess(df)
         logging.info('Pre_Processing is done')
         with open ('config/data_pkl_files/x_train_data.pkl','wb') as f:
             pickle.dump(X_train,f)

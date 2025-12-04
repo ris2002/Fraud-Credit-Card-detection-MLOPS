@@ -4,13 +4,17 @@ import pandas as pd
 import numpy as np
 from typing import Tuple
 from typing_extensions import Annotated
+import time
 
 
 class Evaluation_And_Prediction_Strategy:
 
     def model_prediction(self,trained_model:np.ndarray,X_test_data:np.ndarray)->np.ndarray:
         try:
+            start = time.time()
             predicted_model=trained_model.predict(X_test_data)
+            end = time.time()
+            print(f"Prediction time: {end - start:.4f} seconds")
             logging.info('Predicted the model')
             return predicted_model
         except Exception as e:
@@ -20,7 +24,7 @@ class Evaluation_And_Prediction_Strategy:
         try:
             
             acc_score=float(accuracy_score(y_test_data,predicted_model))
-            logging.error(f'Calculated the accuracy_score {acc_score}')
+            logging.info(f'Calculated the accuracy_score {acc_score}')
             return acc_score
 
         except Exception as e:
