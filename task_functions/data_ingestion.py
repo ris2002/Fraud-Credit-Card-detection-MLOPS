@@ -1,9 +1,9 @@
 import logging
-
+from airflow.decorators import task
 import pandas as pd
 import os
 
-
+@task
 class Ingest_Data:
     def ingest_data_from_kaggle(self,dataset_path)->pd.DataFrame:
         try:
