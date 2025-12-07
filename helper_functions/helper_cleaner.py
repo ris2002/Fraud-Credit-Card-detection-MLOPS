@@ -12,9 +12,10 @@ class Pre_Process_Strategy:
         try:
             df=df.drop_duplicates()
             # inplace=True means Modify the DataFrame directly instead of returning a new one.
-
+            df = df.sample(frac=0.02, random_state=42) #AIRFLOW TESTING 
             X=df.drop(columns=['Time','Class'])
             Y=df['Class']
+           
             scalar=StandardScaler()
             X_scaled=scalar.fit_transform(X)
             pca=PCA(n_components=10)#This keeps the first 2 principal components, meaning your data is reduced to 2 dimensions.If your dataset originally has:100 features → reduced to 10 features50 features → reduced to 10 features8 features → ❌ cannot use 10 components (max is 8)

@@ -96,6 +96,19 @@ x-airflow-common:
       condition: service_healthy
 
 services:
+
+
+
+
+  mlflow-server:
+  
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
+    ports:
+      - "5050:5050"
+    volumes:
+      - mlflow-data:/mlflow   #The folder /mlflow inside the running container is stored in a Docker volume named mlflow-data.
   postgres:
     image: postgres:16
     environment:
@@ -342,4 +355,5 @@ services:
         condition: service_completed_successfully
 
 volumes:
+  mlflow-data:
   postgres-db-volume:
