@@ -4,5 +4,11 @@
         "C":1,
         "gamma":1
 
+    },
+    "rfc":{
+        "n_estimators":50,
+        "random_state":42
+
+
     }
 }

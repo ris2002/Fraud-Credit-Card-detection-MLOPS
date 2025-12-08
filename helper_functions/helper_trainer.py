@@ -3,6 +3,8 @@ from sklearn.svm import SVC
 from abc import abstractmethod,ABC
 import pandas as pd
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+
 
 
 class Model_Training_Strategies(ABC):
@@ -22,7 +24,13 @@ class SVM_Trainer_Class(Model_Training_Strategies):
 
 class Random_Forest_Trainer_Class(Model_Training_Strategies):
     def train_model(self,X_train:np.ndarray,y_train:np.ndarray,**kwargs):
-        pass
+        try:
+            random_forest=RandomForestClassifier(**kwargs)
+            model=random_forest.fit(X_train,y_train)
+            return model
+        except Exception as e:
+            logging.error(f'Error training RFC model:{e}')
+            raise e
 class KNN_Trainer_Class(Model_Training_Strategies):
     def train_model(self,X_train:np.ndarray,y_train:np.ndarray,**kwargs):
         pass
