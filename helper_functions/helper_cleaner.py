@@ -28,7 +28,7 @@ class Pre_Process_Strategy:
         except Exception as e:
             logging.error(f'Error in the Pre_Process_Startegy:{e}')
             raise e
-    def clean_annd_preprocess_deployment_data(self,df:pd.DataFrame)->None:
+    def clean_annd_preprocess_deployment_data(self,df:pd.DataFrame)->None:#no need of cleaner function as the data from the deployment data is going to be cleaed and downnloaded to pickle files from the training and testig dataset itself
         pass
         
 
