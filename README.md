@@ -4,7 +4,7 @@ E-mail Spam Detection — MLOps-(Link: https://github.com/ris2002/E-mail-Spam-ML
 ## Different thinngs to be done wrt to my 3rd Project
 * Involving a feature store.
 * In previous project I have construted pipeline immediately. This thimee I am going run the project without pipeline first and only after that I am going to create DAGS and Tasks.
-* Usage of terraform
+* Usage of KAFKA and dvc
 * Usage of config maps, secrets ,and  ingress in Kubernetes(K8S)
 
 
@@ -24,7 +24,47 @@ git add data.dvc .gitignore
 git commit -m "Track dataset with DVC"
 Now that folder is not tracked by git but by dvc cacche. data.dvc is going to be stored in git
 DVC (Data Version Control) is an open-source tool designed to manage large datasets, machine-learning models, experiments, and pipelines. It works alongside Git but handles the things Git cannot, such as big files, data updates, reproducible pipelines, and shared storage.
-## Feature Stores
+## KAFKA
+
+✔ KAFKA_KRAFT_MODE
+
+Enables Kafka’s built-in KRaft mode so it runs without ZooKeeper.
+
+✔ KAFKA_CLUSTER_ID
+
+Specifies the unique ID of the Kafka cluster required in KRaft mode.
+
+✔ KAFKA_NODE_ID
+
+Sets the numeric ID of this Kafka node.
+
+✔ KAFKA_PROCESS_ROLES
+
+Defines what this node does — acting as both broker and controller.
+
+✔ KAFKA_CONTROLLER_QUORUM_VOTERS
+
+Tells Kafka which node(s) participate in the metadata controller quorum.
+
+✔ KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
+
+Sets replication factor for internal offset tracking (must be 1 for single-node).
+
+✔ KAFKA_LISTENERS
+
+Defines the ports where the broker and controller listen for connections.
+
+✔ KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
+
+Maps listener names to the security protocols they use.
+
+✔ KAFKA_CONTROLLER_LISTENER_NAMES
+
+Specifies which listener is used for controller communication.
+
+✔ KAFKA_LOG_DIRS
+
+Sets the directory where Kafka stores log and data files.
 
 
 ## Extra enhancements to my airflow
