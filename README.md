@@ -1,7 +1,8 @@
-# Fraud-Credit-Card-detection-MLOPS
+# Fraud-Credit-Card-detection-MLOPS[Not able to run the deployment pipeline ]
 Some architectural ideas and workflow patterns are adapted from my earlier project:
 E-mail Spam Detection — MLOps-(Link: https://github.com/ris2002/E-mail-Spam-MLOPS-.git).
-## Different thinngs to be done wrt to my 3rd Project
+I could not run the deployment pipeline. The error I am gettig is is is not able to load the model from mlflow. I have decided to move to the next project as i have been getting error for over 4 days
+## Different thinngs to be done wrt to my 3rd Project [Couldn't run kafka,kubernetes and fast api will do it in my next project]
 * Involving a feature store.
 * In previous project I have construted pipeline immediately. This thimee I am going run the project without pipeline first and only after that I am going to create DAGS and Tasks.
 * Usage of KAFKA and dvc
@@ -67,7 +68,7 @@ Specifies which listener is used for controller communication.
 Sets the directory where Kafka stores log and data files.
 
 
-## Extra enhancements to my airflow
+##  my airflow and errors
 beyond the basic '@dag(dag_id='ml_training_pipeline_04', schedule='@once')' I have added anothher arg that is  default_args={
         "retries": 3,
         "retry_delay": timedelta(minutes=5),
@@ -77,3 +78,4 @@ beyond the basic '@dag(dag_id='ml_training_pipeline_04', schedule='@once')' I ha
 IT IS BEST PRACTICE TO AVOID INSTALLING FAST API AND UVICORN INSIDE AIRFLOW
 I have done one mistake in 3rd project. In the DAG of that project I have returned the the csv_file converted to pandas annd gave it as an input to thhe nnext step. It worked in that project because thhe data set is small. The optimal way is to store it inn a pkl file and read thhe contnnats directly whhen in thhe function which uses it.
 Do not return a value from a function, this is because if the value is large the dag will fail
+

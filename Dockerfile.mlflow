@@ -4,4 +4,4 @@ ENV BACKEND_URI=sqlite:///project1_mlflow.db
   #This creates an environment variable called BACKEND_URI the value is sqlite:///project1_mlflow.db
 RUN pip install --no-cache-dir mlflow 
 EXPOSE 5050 
-CMD mlflow ui --backend-store-uri $BACKEND_URI --host 0.0.0.0 --port 5050 --allowed-hosts="*"
+CMD mlflow ui --backend-store-uri $BACKEND_URI --default-artifact-root /mlflow/artifacts  --host 0.0.0.0 --port 5050 --allowed-hosts="*"
